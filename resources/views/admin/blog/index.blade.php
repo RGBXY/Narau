@@ -42,7 +42,25 @@
                             <a href="{{route('blog.edit', $artikel->id)}}" class="btn btn-warning">Edit</a>
                             <form action="{{route('blog.destroy', $artikel->id )}}" method="POST" class="d-inline">
                                 @csrf
-                                <button type="submit" onclick="alert('Yakin mau di hapus?')" class="btn btn-danger">Hapus</button>
+                                <button onclick="deleteModal()" type="button" data-bs-toggle="modal" data-bs-target="#deleteModal{{$artikel->id}}" class="btn btn-danger">Hapus</button>
+
+                                <div class="modal" id="deleteModal{{$artikel->id}}" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">{{__('Delete')}}</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                {{__('Are You Sure to Delete Post ')}}<b>{{$artikel->judul}}.</b>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-danger">Hapus</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                         </td>
                     </tr>
@@ -52,4 +70,11 @@
         </div>
     </div>
 </section>
+
+<script>
+    function deleteModal() {
+
+    }
+
+</script>
 @endsection

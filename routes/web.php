@@ -21,11 +21,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AppController::class, 'index']);
 
+Route::get('/about', [AppController::class, 'about']);
+
 Route::get('/mtk_game', [AppController::class, 'mtk_game']);
 
 Route::get('/berita', [AppController::class, 'berita']);
 
 Route::get('/detail/{slug}', [AppController::class, 'detail']);
+
+Route::get('/more', [AppController::class, 'more'])->name('more-video');
 
 Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'authenticate']);
@@ -44,3 +48,5 @@ Route::get('/video', [VideoController::class, 'index'])->name('video')->middlewa
 Route::post('/video/store', [VideoController::class, 'store'])->name('video.store')->middleware('auth');
 Route::post('/video/update/{id}', [VideoController::class, 'update'])->name('video.update')->middleware('auth');
 Route::post('/video/destroy/{id}', [VideoController::class, 'destroy'])->name('video.destroy')->middleware('auth');
+
+Route::get('/blog/search', [BlogController::class, 'search']);

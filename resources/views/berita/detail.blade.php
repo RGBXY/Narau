@@ -16,7 +16,7 @@
 
         <aside id="side">
             <div id="side-content" class="side-content sticky-top">
-                <h2 class="fw-bold border-bottom border-2">Artikel Trending <i data-feather="coffee"></i></h2>
+                <h2 class="fw-bold border-bottom border-2">Artikel Lainnya <i data-feather="coffee"></i></h2>
                 <div class="side-con d-flex flex-column-reverse">
                     @foreach($artikels as $item)
                     <div class="side-con-wrap d-flex flex-row-reverse justify-content-between">

@@ -70,7 +70,7 @@ class BlogController extends Controller
                 $new_src = asset($filePath);
                 $img->removeAttribute('src');
                 $img->setAttribute('src', $new_src);
-                $img->setAttribute('class', 'img-responsive');
+                $img->setAttribute('class', 'img-fluid');
             }
         }
 
@@ -154,7 +154,7 @@ class BlogController extends Controller
                 $new_src = asset($filePath);
                 $img->removeAttribute('src');
                 $img->setAttribute('src', $new_src);
-                $img->setAttribute('class', 'img-responsive');
+                $img->setAttribute('class', 'img-fluid');
             }
         }
 
@@ -178,4 +178,10 @@ class BlogController extends Controller
 
         return redirect(route('blog'))->with('success', 'data berhasil di hapus');
     }
+
+    // public function search(Request $request){
+    //     if($request->has('search')){
+            
+    //     }
+    // }
 }

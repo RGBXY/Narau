@@ -25,28 +25,28 @@
                 <div class="box bg-white rounded-3 p-4 d-flex justify-content-between align-items-center shadow">
                     <h5>Materi Berkualitas</h5>
                     <img src="{{asset('assets/icon/ic-book.png')}}" height="55" width="55" alt="">
-</div>
-</div>
-<div class="box col-lg-3">
-    <div class="bg-white rounded-3 p-4 d-flex justify-content-between align-items-center shadow">
-        <h5>Terverifikasi Ahli</h5>
-        <img src="{{asset('assets/icon/ic-book.png')}}" height="55" width="55" alt="">
+                </div>
+            </div>
+            <div class="box col-lg-3">
+                <div class="bg-white rounded-3 p-4 d-flex justify-content-between align-items-center shadow">
+                    <h5>Terverifikasi Ahli</h5>
+                    <img src="{{asset('assets/icon/ic-book.png')}}" height="55" width="55" alt="">
+                </div>
+            </div>
+            <div class="box col-lg-3">
+                <div class="bg-white rounded-3 p-4 d-flex justify-content-between align-items-center shadow">
+                    <h5>Mudah Dipahami</h5>
+                    <img src="{{asset('assets/icon/ic-book.png')}}" height="55" width="55" alt="">
+                </div>
+            </div>
+            <div class="box col-lg-3">
+                <div class="bg-white rounded-3 p-4 d-flex justify-content-between align-items-center shadow">
+                    <h5>Pendidikan Berkualitas</h5>
+                    <img src="{{asset('assets/icon/ic-book.png')}}" height="55" width="55" alt="">
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-<div class="box col-lg-3">
-    <div class="bg-white rounded-3 p-4 d-flex justify-content-between align-items-center shadow">
-        <h5>Mudah Dipahami</h5>
-        <img src="{{asset('assets/icon/ic-book.png')}}" height="55" width="55" alt="">
-    </div>
-</div>
-<div class="box col-lg-3">
-    <div class="bg-white rounded-3 p-4 d-flex justify-content-between align-items-center shadow">
-        <h5>Pendidikan Berkualitas</h5>
-        <img src="{{asset('assets/icon/ic-book.png')}}" height="55" width="55" alt="">
-    </div>
-</div>
-</div>
-</div>
 </div> --}}
 
 <div id="content" class="content container d-flex">
@@ -57,29 +57,41 @@
         <section class="carousel mt-1">
             <div id="carouselExampleAutoplaying" class="car-wrap carousel slide w-100" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-1 carousel-item active">
-                        <img src="{{ asset('assets/img/matematika.jpg') }}" class="c-img d-block w-100" height="400px" alt="...">
-                        <div class="car-cap-1 carousel-caption d-none d-md-block">
+                    <div class="carousel-item active">
+                        @foreach($carausel as $item)
+                        <img src="{{ asset('storage/artikel/' . $item->image) }}" class="c-img d-block w-100" height="400px" alt="...">
+                        <div class="car-cap-1 carousel-caption d-md-block">
                             <div class="carousel-caption">
-                                @foreach($artikels as $item)
                                 <a class="text-center text-decoration-none text-white" href="/detail/{{ $item->slug }}">
-                                    <h3 class="title-con fs-2">{{ $item->judul }}</h3>
+                                    <h3 class="title-con-car">{{ $item->judul }}</h3>
                                 </a>
-                                @endforeach
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                    <div class="carousel-2 carousel-item">
-                        <img src="{{ asset('assets/img/puisi.jpg') }}" class="c-img d-block w-100" height="400px" alt="...">
-                        <div class="car-cap-2 carousel-caption d-none d-md-block">
-                            <div class="carousel-caption text-start d-flex flex-column-reverse">
-                                @foreach($artikels as $item)
+                    <div class="carousel-item">
+                        @foreach($carausel2 as $item)
+                        <img src="{{ asset('storage/artikel/' . $item->image) }}" class="c-img d-block w-100" height="400px" alt="...">
+                        <div class="car-cap-1 carousel-caption d-md-block">
+                            <div class="carousel-caption">
                                 <a class="text-center text-decoration-none text-white" href="/detail/{{ $item->slug }}">
-                                    <h3 class="title-con fs-2">{{ $item->judul }}</h3>
+                                    <h3 class="title-con-car">{{ $item->judul }}</h3>
                                 </a>
-                                @endforeach
                             </div>
                         </div>
+                        @endforeach
+                    </div>
+                    <div class="carousel-item">
+                        @foreach($carausel3 as $item)
+                        <img src="{{ asset('storage/artikel/' . $item->image) }}" class="c-img d-block w-100" height="400px" alt="...">
+                        <div class="car-cap-1 carousel-caption d-md-block">
+                            <div class="carousel-caption">
+                                <a class="text-center text-decoration-none text-white" href="/detail/{{ $item->slug }}">
+                                    <h3 class="title-con-car">{{ $item->judul }}</h3>
+                                </a>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
 
                     <div class="carousel-icon">
@@ -113,11 +125,15 @@
                             <h3 class="artikel-title">{{ $item->judul }}</h3>
                         </a>
                         <p>by <span class="text-warning fw-semibold">Derren</span></p>
-                        <div class="article-desc fw-semibold">{!! $item->desc !!}</div>
+                        <div class="article-desc fw-semibold">{{$item->created_at->diffForHumans()}}</div>
                     </div>
                 </div>
-                @endforeach
+                @endforeach 
+                <div class="text-center">
+                    <a href="{{'berita'}}" class="btn btn-outline-warning">Artikel Lainnya</a>
+                </div>
             </div>
+        </section>
     </div>
 
     {{-- Side Content --}}
@@ -146,7 +162,7 @@
 <section id="video">
     <div class="container py-5">
         <div>
-            <h3 class="title-con border-bottom border-2">Video yang pasti membantu</h3>
+            <h3 class="title-con border-bottom border-2">Video yang mungkin membantu</h3>
         </div>
         <div class="row py-4">
             @foreach ($videos as $item)
@@ -154,6 +170,10 @@
                 <iframe width="100%" height="250" src="https://www.youtube.com/embed/{{ $item->youtube_code }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             @endforeach
+        </div>
+
+        <div class="text-center">
+            <a href="{{route('more-video')}}" class="btn btn-outline-warning">Video Lainnya</a>
         </div>
 
     </div>

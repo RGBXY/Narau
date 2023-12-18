@@ -10,7 +10,8 @@ class VideoController extends Controller
 {
     public function index(){
         return view('admin.video.index', [
-            'videos' => Video::orderBy('id', 'desc')->get()
+            'videos' => Video::orderBy('id', 'desc')->get(),
+            'more' => Video::orderBy('id', 'desc')->get(),
         ]);
     }
 

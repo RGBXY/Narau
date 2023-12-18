@@ -21,10 +21,10 @@
                         <input type="password" name="password" class="form-control" placeholder="Password">
                     </div>
 
-                    <button type="submit" class="but-log">Sign in</button>
+                    <button type="submit" class="but-log mb-2">Sign in</button>
                 </form>
+                <a class="text-decoration-none" href="/">Kembali Keberanda</a>
             </div>
-            
         </div>
     </section>
 @endsection

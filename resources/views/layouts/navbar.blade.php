@@ -71,13 +71,16 @@
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2 " aria-current="page" href="/">Home</a>
+                            <a class="nav-link mx-lg-2 " aria-current="page" href="{{'/'}}">Beranda</a>
+                        </li>
+                        <a class="nav-link mx-lg-2" href="{{ 'berita' }}">Artikel</a>
+                        <li class="nav-item">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#content">Artikel</a>
+                            <a class="nav-link mx-lg-2" href="{{route('more-video')}}">Video</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link mx-lg-2" href="#video">Video</a>
+                            <a class="nav-link mx-lg-2 " aria-current="page" href="{{'about'}}">Tentang Kami</a>
                         </li>
                     </ul>
                 </div>
@@ -95,7 +98,6 @@
                             <div class="nav-modal text-start">
                                 <h1>Derren Amadeo</h1>
                                 <h1>@derren9809</h1>
-                                <a href="#">Lihat Profil</a>
                             </div>
                         </div>
                         <div class="con-wrap-nav">
