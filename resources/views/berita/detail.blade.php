@@ -4,6 +4,7 @@
 <section id="detail" class="detail">
     <div class="detail-wrap container">
         <div class="detail-con-wrap mb-4">
+            
             <h1 class="mb-3">{{$artikel->judul}}</h1>
             <img class="shadow-sm rounded-circle mb-2" width="50px" src="{{ asset('assets/icon/profile.jpeg') }}" alt="">
             <p class="mb-3 fs-5">by <span class="text-warning fw-bold">Derren</span></p>

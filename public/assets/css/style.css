@@ -238,18 +238,18 @@ nav {
     margin-bottom: 2rem;
 }
 
-.hero-con a {
+.hero-con a .hero-but{
     text-decoration: none;
     font-size: 16px;
     color: rgb(106, 27, 180);
 }
 
-.hero-con a .hero-but {
+.hero-con .hero-but {
     height: 43px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 150px;
+    width: 155px;
     border-radius: 15px;
 }
 
@@ -284,6 +284,11 @@ nav {
     justify-content: space-between;
 }
 
+.time-icon {
+    width: 17px;
+    margin: 0 4px 2px 0;
+}
+
 .title-con {
     font-weight: 600;
 }
@@ -297,10 +302,6 @@ nav {
     width: 65%;
 }
 
-.carousel .car-cap-1 {
-    bottom: 6rem;
-}
-
 .c-item {
     height: 480px;
 }
@@ -308,6 +309,85 @@ nav {
 .c-img {
     filter: brightness(0.8);
     border-radius: 15px 15px 0 0;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    z-index: 1;
+}
+
+.c-img:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+
+.carousel .car-cap-1 {
+    position: absolute;
+    left: 50%;
+    top: 75%;
+    transform: translate(-50%, -50%);
+    text-align: start;
+}
+
+.car-cap-1 .title-con-car {
+    font-size: 40px;
+    width: 70%;
+    color: #ffffff;
+    margin: 0 0 10px;
+}
+
+.carousel-controls {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    z-index: 10;
+    transform: translate(-50%, 110%);
+}
+
+.carousel-indicators {
+    position: relative;
+    margin: 0;
+}
+
+.carousel-controls .carousel-indicators button {
+    height: 70px;
+    width: 70px;
+    margin-top: 0 5px;
+    background-position: center;
+    background-size: cover;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    height: 60px;
+    width: 60px;
+    opacity: 1;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff0000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+   }
+   
+   .carousel-control-next-icon {
+     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff0000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+   }
+
+.carousel-control-next{
+    right: -60px;
+}
+
+.carousel-control-prev {
+    left: -60px;
 }
 
 .artikel-title {
@@ -516,7 +596,7 @@ footer .credit a {
         transform: translateX(-50%);
         width: 0;
         height: 2px;
-        background-color: red;
+        background-color: #311544;
         transition: 0.2s ease-in-out;
         visibility: hidden;
     }
@@ -572,6 +652,8 @@ footer .credit a {
         height: 100px;
     }
 
+
+
     .logout {
         top: 70px;
         right: 100px;
@@ -626,7 +708,7 @@ footer .credit a {
         justify-content: center;
     }
 
-    .text-wraper-about-2 .tit-about-wrap h1{
+    .text-wraper-about-2 .tit-about-wrap h1 {
         margin-bottom: 1.5rem;
     }
 
@@ -635,7 +717,7 @@ footer .credit a {
     }
 }
 
-@media (max-width: 766px) {
+@media (max-width: 767px) {
     .article-con img {
         height: 150px;
         width: 200px;
@@ -657,6 +739,29 @@ footer .credit a {
     .logout {
         top: 75px;
         right: 10px;
+    }
+
+    .c-img{
+        height: 300px;
+        width: 100%;
+    }
+
+    .carousel .car-cap-1 {
+        left: 50%;
+        top: 55%;
+        transform: translate(-50%, -50%);
+        text-align: start;
+    }
+
+    .car-cap-1 .title-con-car {
+        font-size: 30px;
+        width: 70%;
+        color: #ffffff;
+        margin: 0 0 10px;
+    }
+
+    .time-car{
+        font-size: 15px;
     }
 }
 
@@ -707,11 +812,20 @@ footer .credit a {
         font-size: 0.5rem;
     }
 
-    .title-con-car {
-        font-size: medium;
+    .car-cap-1  .title-con-car {
+        font-size: 20px;
+    }
+
+    .c-img{
+        height: 250px;
     }
 
     .about-quote h1 {
         width: 100%;
     }
+
+    .time-car{
+        font-size: 12px;
+    }
+    
 }

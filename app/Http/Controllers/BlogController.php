@@ -30,12 +30,14 @@ class BlogController extends Controller
             'judul' => 'required',
             'image' => 'required|max:3000|mimes:jpg,jpeg,png,webp',
             'desc' => 'required|min:20',
+            'descm' => 'required|min:5',
         ];
 
         $messages = [
             'judul.required' => 'Judul wajib diisi!',
             'image.required' => 'Image wajib diisi!',
             'desc.required' => 'Deskripsi wajib diisi!',
+            'descm.required' => 'Deskripsi wajib diisi!',
         ];
 
         $this->validate($request, $rules, $messages);
@@ -179,9 +181,5 @@ class BlogController extends Controller
         return redirect(route('blog'))->with('success', 'data berhasil di hapus');
     }
 
-    // public function search(Request $request){
-    //     if($request->has('search')){
-            
-    //     }
-    // }
+  
 }

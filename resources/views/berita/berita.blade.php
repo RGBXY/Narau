@@ -7,64 +7,61 @@
         <h3 class="title-con border-bottom border-2">Materi Belajar Yang Bikin #Berkembang</h3>
 
         {{-- Carousel--}}
-        <section class="carousel mt-1">
-            <div id="carouselExampleAutoplaying" class="car-wrap carousel slide w-100" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        @foreach($carausel as $item)
-                        <img src="{{ asset('storage/artikel/' . $item->image) }}" class="c-img d-block w-100" height="400px" alt="...">
-                        <div class="car-cap-1 carousel-caption d-md-block">
-                            <div class="carousel-caption">
-                                <a class="text-center text-decoration-none text-white" href="/detail/{{ $item->slug }}">
-                                    <h3 class="title-con-car">{{ $item->judul }}</h3>
-                                </a>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                    <div class="carousel-item">
-                        @foreach($carausel2 as $item)
-                        <img src="{{ asset('storage/artikel/' . $item->image) }}" class="c-img d-block w-100" height="400px" alt="...">
-                        <div class="car-cap-1 carousel-caption d-md-block">
-                            <div class="carousel-caption">
-                                <a class="text-center text-decoration-none text-white" href="/detail/{{ $item->slug }}">
-                                    <h3 class="title-con-car">{{ $item->judul }}</h3>
-                                </a>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                    <div class="carousel-item">
-                        @foreach($carausel3 as $item)
-                        <img src="{{ asset('storage/artikel/' . $item->image) }}" class="c-img d-block w-100" height="400px" alt="...">
-                        <div class="car-cap-1 carousel-caption d-md-block">
-                            <div class="carousel-caption">
-                                <a class="text-center text-decoration-none text-white" href="/detail/{{ $item->slug }}">
-                                    <h3 class="title-con-car">{{ $item->judul }}</h3>
-                                </a>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-
-                    <div class="carousel-icon">
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </button>
-                    </div>
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-controls">
+                <div class="carousel-indicators">
+                    @foreach($carausel as $item)
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-image: url('{{ asset('storage/artikel/' . $item->image) }}');"></button>
+                    @endforeach
+                    @foreach($carausel2 as $item)
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2" style="background-image: url('{{ asset('storage/artikel/' . $item->image) }}');"></button>
+                    @endforeach
+                    @foreach($carausel3 as $item)
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="background-image: url('{{ asset('storage/artikel/' . $item->image) }}');"></button>
+                    @endforeach
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-        </section>
+            <div class="carousel-inner">
+                @foreach($carausel as $item)
+                <div class="c-img carousel-item active" data-bs-interval="10000" style="background-image: url('{{ asset('storage/artikel/' . $item->image) }}')">
+                    <a class="car-cap-1 container text-decoration-none text-white" href="/detail/{{ $item->slug }}">
+                        <h3 class="container title-con-car">{{ $item->judul }}</h3>
+                        <div class="time-car container article-desc fw-semibold"><i class="time-icon" data-feather="clock"></i>{{$item->created_at->diffForHumans()}}</div>
+                    </a>
+                </div>
+                @endforeach
+                @foreach($carausel2 as $item)
+                <div class="c-img carousel-item" data-bs-interval="2000" style="background-image: url('{{ asset('storage/artikel/' . $item->image) }}')">
+                    <a class="car-cap-1 container text-decoration-none text-white" href="/detail/{{ $item->slug }}">
+                        <h3 class="container title-con-car">{{ $item->judul }}</h3>
+                        <div class="time-car container fw-semibold"><i class="time-icon" data-feather="clock"></i>{{$item->created_at->diffForHumans()}}</div>
+                    </a>
+                </div>
+                @endforeach
+                @foreach($carausel3 as $item)
+                <div class="c-img carousel-item" style="background-image: url('{{ asset('storage/artikel/' . $item->image) }}')">
+                    <a class="car-cap-1 container text-decoration-none text-white" href="/detail/{{ $item->slug }}">
+                        <h3 class="container title-con-car">{{ $item->judul }}</h3>
+                        <div class="time-car container article-desc fw-semibold"><i class="time-icon" data-feather="clock"></i>{{$item->created_at->diffForHumans()}}</div>
+                    </a>
+                </div>
+                @endforeach
+            </div>
+
+        </div>
         {{-- Carousel --}}
 
 
         {{-- berita --}}
-        <section id="berita" class="mt-5">
+        <section id="berita" style="margin-top: 7rem">
             <div class="mb-4 d-flex">
                 <h3 class="title-con title border-bottom border-2">Artikel Terbaru <i data-feather="book-open"></i></h3>
             </div>
@@ -81,7 +78,7 @@
                         <div class="article-desc fw-semibold">{{$item->created_at->diffForHumans()}}</div>
                     </div>
                 </div>
-                
+
                 @endforeach
                 <div>
 

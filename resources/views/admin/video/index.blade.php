@@ -20,7 +20,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>jududl</th>
+                        <th>judul</th>
                         <th>video</th>
                         <th>aksi</th>
                     </tr>

@@ -21,11 +21,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [AppController::class, 'index']);
 
-Route::get('/about', [AppController::class, 'about']);
+Route::get('/about', [AppController::class, 'about'])->name('tentang');
 
 Route::get('/mtk_game', [AppController::class, 'mtk_game']);
 
-Route::get('/berita', [AppController::class, 'berita']);
+Route::get('/berita', [AppController::class, 'berita'])->name('berita-artik');
 
 Route::get('/detail/{slug}', [AppController::class, 'detail']);
 

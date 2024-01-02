@@ -14,7 +14,7 @@ class AppController extends Controller
 
     public function more(){
         return view('videos/video', [
-            'more' => Video::orderBy('id', 'desc')->get(),
+            'more' => Video::orderBy('id', 'desc')->paginate(30),
         ]);
     }
 
@@ -30,7 +30,7 @@ class AppController extends Controller
 
     public function berita(){
         return view('berita.berita', [
-            'artikels' => Blog::orderBy('id', 'desc')->paginate(5),
+            'artikels' => Blog::orderBy('id', 'desc')->paginate(20),
             'side' => Blog::orderBy('id', 'desc')->limit(5)->get(),
             'carausel' => Blog::orderBy('id', 'desc')->get()->random(1),
             'carausel2' => Blog::orderBy('id', 'desc')->get()->random(1),
