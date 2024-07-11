@@ -22,7 +22,7 @@
 <body>
 
     {{-- Navbar --}}
-    @include('layouts.navbar')
+    @include('layouts.navbar') 
 
     {{-- Content --}}
     @yield('content')

@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', [AppController::class, 'index']);
 
 Route::get('/about', [AppController::class, 'about'])->name('tentang');

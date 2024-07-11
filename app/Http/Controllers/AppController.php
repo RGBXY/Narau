@@ -18,19 +18,30 @@ class AppController extends Controller
         ]);
     }
 
-    public function index(){
+    public function index() {
+        $blogs = Blog::orderBy('id', 'desc')->get();
+        $articles = $blogs->take(5);
+    
+        // Ensure at least an empty collection is returned if there are not enough blogs
+        $carausel = ($blogs->count() > 0) ? collect([$blogs->random()]) : collect();
+        $carausel2 = ($blogs->count() > 0) ? collect([$blogs->random()]) : collect();
+        $carausel3 = ($blogs->count() > 0) ? collect([$blogs->random()]) : collect();
+    
+        $videos = Video::orderBy('id', 'desc')->get();
+        $randomVideos = ($videos->count() >= 3) ? $videos->random(3) : collect();
+    
         return view('welcome', [
-            'artikels' => Blog::orderBy('id', 'desc')->limit(5)->get(),
-            'videos' => Video::orderBy('id', 'desc')->get()->random(3),
-            'carausel' => Blog::orderBy('id', 'desc')->get()->random(1),
-            'carausel2' => Blog::orderBy('id', 'desc')->get()->random(1),
-            'carausel3' => Blog::orderBy('id', 'desc')->get()->random(1),
+            'artikels' => $articles,
+            'videos' => $randomVideos,
+            'carausel' => $carausel,
+            'carausel2' => $carausel2,
+            'carausel3' => $carausel3,
         ]);
     }
 
     public function berita(){
         return view('berita.berita', [
-            'artikels' => Blog::orderBy('id', 'desc')->paginate(20),
+            'artikels' => Blog::orderBy('id', 'desc')->paginate(5),
             'side' => Blog::orderBy('id', 'desc')->limit(5)->get(),
             'carausel' => Blog::orderBy('id', 'desc')->get()->random(1),
             'carausel2' => Blog::orderBy('id', 'desc')->get()->random(1),

@@ -37,6 +37,7 @@
                         </td>
                         <td>
                             <iframe height="150" src="https://www.youtube.com/embed/{{ $item->youtube_code }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
                         </td>
                         <td>
                             <a href="#" data-bs-target="#editVideo{{ $item->id }}" data-bs-toggle="modal" class="btn btn-warning">Edit</a>

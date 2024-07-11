@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="hero-img-wrap">
-            <img src="{{ asset('assets/img/ban-img.png') }}" alt="">
+            <img src="{{ asset('assets/img/ban-img.png') }}" alt="halo">
         </div>
     </div>
 </section>
@@ -68,6 +68,7 @@
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-controls">
                 <div class="carousel-indicators">
+                    @if($carausel->isNotEmpty())
                     @foreach($carausel as $item)
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1" style="background-image: url('{{ asset('storage/artikel/' . $item->image) }}');"></button>
                     @endforeach
@@ -77,6 +78,7 @@
                     @foreach($carausel3 as $item)
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3" style="background-image: url('{{ asset('storage/artikel/' . $item->image) }}');"></button>
                     @endforeach
+                    @endif
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -113,7 +115,6 @@
                 </div>
                 @endforeach
             </div>
-
         </div>
         {{-- Carousel --}}
 

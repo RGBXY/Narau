@@ -8,7 +8,7 @@
             <h1 class="mb-3">{{$artikel->judul}}</h1>
             <img class="shadow-sm rounded-circle mb-2" width="50px" src="{{ asset('assets/icon/profile.jpeg') }}" alt="">
             <p class="mb-3 fs-5">by <span class="text-warning fw-bold">Derren</span></p>
-            <img class="img-con rounded mb-3" src="{{ asset('storage/artikel/' . $artikel->image) }}" width="100%" height="450px">
+            <img class="img-con rounded mb-3"  style="object-fit: cover" src="{{ asset('storage/artikel/' . $artikel->image) }}" width="100%" height="450px">
             <div>
                 <p>{!! $artikel->desc !!}</p>
             </div>

@@ -61,6 +61,7 @@ class VideoController extends Controller
 
             
         }
+
         public function destroy($id)
         {
             $video = Video::find($id); 
